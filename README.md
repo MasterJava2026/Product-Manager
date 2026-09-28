@@ -1,5 +1,3 @@
-# Product-Manager
-My first Python project: Product Manager  
 speicher = []   
 
 class Product:
@@ -15,6 +13,19 @@ class Product:
     def set_name(self,new_name):
         self.name = new_name
 
+    def update(self):
+        inputt = input(f"was mcöhsten Sie an dem Produkt ändern (Name, Pries, Menge) \n")
+        for produkt in speicher:
+            if inputt == "Name":
+                new_name = input("geben Sie den neuen Namen ein !")
+                produkt.name = new_name
+            elif inputt == "Preis":
+                new_preis = input("geben Sie den neuen Preis ein !")
+                produkt.preis = new_preis
+            elif inputt == "Menge":
+                new_menge = input("geben Sie die neue Menge ein !")
+                produkt.preis = new_menge
+            
 
 def speichern(ID, name, preis, menge):
     werte = Product(ID, name, preis, menge)
@@ -64,17 +75,16 @@ while True:
                break
 
     elif nummer == "4":
-        name = input("Was möchten Sie an dem Produkt ändern? Geben Sie den Namen ein \n")
-        for produkt in speicher:
-            if produkt.name == name:
-                new = input("Der neue Name ")
-                produkt.set_name(new)
-                print(f"produkt: {produkt} wrude geändert")
+        Product.update(nummer)
+        
 
 
     elif nummer == "5":
         print("Programm wird beendet. \n")
         break    
+
+
+
 
 
 
